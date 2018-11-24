@@ -9,4 +9,6 @@ public class IoTSiteApplication {
     public static void main(String[] args) {
         SpringApplication.run(IoTSiteApplication.class, args);
     }
+
+
 }
