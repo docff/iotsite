@@ -1,6 +1,6 @@
-package com.project.iotsite.repositories;
+package com.project.iotsite.repository;
 
-import com.project.iotsite.models.Device;
+import com.project.iotsite.entity.Device;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DeviceRepository extends JpaRepository<Device, Long> {

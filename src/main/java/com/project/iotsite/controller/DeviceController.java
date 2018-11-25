@@ -1,7 +1,7 @@
-package com.project.iotsite.controllers;
+package com.project.iotsite.controller;
 
-import com.project.iotsite.models.Device;
-import com.project.iotsite.repositories.DeviceRepository;
+import com.project.iotsite.entity.Device;
+import com.project.iotsite.repository.DeviceRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
