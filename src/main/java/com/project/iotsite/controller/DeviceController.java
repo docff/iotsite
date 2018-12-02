@@ -18,6 +18,7 @@ public class DeviceController  {
     @Autowired
     private DeviceService deviceService;
 
+
     @GetMapping("/devices")
     public Collection<Device> getAllDevices() {
         return  deviceService.findAll();
@@ -51,8 +52,8 @@ public class DeviceController  {
 
     }
 
-
-
-
-
+    @GetMapping("/rooms/{id}/devices")
+    public  Collection<Device>  getByRoomId(@PathVariable long id) {
+        return deviceService.findAllByRoomId(id);
+    }
 }

@@ -28,4 +28,6 @@ public class RoomController {
     public Room getRoom(@PathVariable long id) {
         return roomService.findById(id);
     }
+
+
 }

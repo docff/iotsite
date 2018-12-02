@@ -18,4 +18,6 @@ public interface DeviceService {
     void delete(Device p);
 
     Device findById(long id);
+
+    List<Device> findAllByRoomId(long id);
 }

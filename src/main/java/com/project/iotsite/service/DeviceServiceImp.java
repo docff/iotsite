@@ -41,4 +41,7 @@ public class DeviceServiceImp implements DeviceService {
     public Device findById(long id) {
         return divRep.findById(id);
     }
+
+    @Override
+    public List<Device> findAllByRoomId(long id) {return divRep.findAllByRoomId(id); }
 }
