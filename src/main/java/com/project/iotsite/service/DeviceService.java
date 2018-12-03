@@ -20,9 +20,9 @@ public interface DeviceService {
 
     List<Device> findAllByRoomId(long id);
 
-    Device OpenDevice(long id);
+    Device openDevice(long id);
 
-    Device CloseDevice(long id);
+    Device closeDevice(long id);
 
-
+    List<Device> changeRoomDevices(long room_id, String Oldstatus, String newStatus);
 }

@@ -6,6 +6,8 @@ package com.project.iotsite.service;
         import org.springframework.stereotype.Service;
 
         import java.util.List;
+        import java.util.Set;
+        import java.util.stream.Stream;
 
 @Service
 public class DeviceServiceImp implements DeviceService {
@@ -46,15 +48,30 @@ public class DeviceServiceImp implements DeviceService {
     public List<Device> findAllByRoomId(long id) { return deviceRepository.findAllByRoomId(id); }
 
     @Override
-    public Device CloseDevice(long id) {
+    public Device closeDevice(long id) {
         Device d = deviceRepository.findById(id);
         d.setStatus( "0" );
         deviceRepository.save(d);
         return d;
         }
 
+
+//        probably doesn't work
     @Override
-    public Device OpenDevice (long id ) {
+    public List<Device> changeRoomDevices(long room_id, String oldStatus, String newStatus) {
+        List<Device> deviceList = deviceRepository.findAllByRoomIdAndStatus(room_id,oldStatus);
+
+        Device d;
+        for (int i=0; i< deviceList.toArray().length; i++){
+            d = deviceList.get(i);
+            deviceList.get(i).setStatus(newStatus);
+            deviceRepository.save(d);
+        }
+        return deviceList;
+    }
+
+    @Override
+    public Device openDevice(long id ) {
         Device d = deviceRepository.findById(id);
         d.setStatus( "1" );
         deviceRepository.save(d);

@@ -59,12 +59,14 @@ public class DeviceController  {
 
     @PutMapping("/devices/{id}/open")
     public Device OpenDevice(@PathVariable long id  ){
-       return  deviceService.OpenDevice(id);
+       return  deviceService.openDevice(id);
     }
 
     @PutMapping("/devices/{id}/close")
     public Device CloseDevice(@PathVariable long id  ){
-        return deviceService.CloseDevice(id);
+        return deviceService.closeDevice(id);
     }
+
+
 
 }
