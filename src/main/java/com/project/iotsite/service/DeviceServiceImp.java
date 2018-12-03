@@ -43,5 +43,21 @@ public class DeviceServiceImp implements DeviceService {
     }
 
     @Override
-    public List<Device> findAllByRoomId(long id) {return divRep.findAllByRoomId(id); }
+    public List<Device> findAllByRoomId(long id) { return divRep.findAllByRoomId(id); }
+
+    @Override
+    public Device CloseDevice(long id) {
+        Device d = divRep.findById(id);
+        d.setStatus( 0 );
+        divRep.save(d);
+        return d;
+        }
+
+    @Override
+    public Device OpenDevice (long id ) {
+        Device d = divRep.findById(id);
+        d.setStatus( 1 );
+        divRep.save(d);
+        return d;
+    }
 }

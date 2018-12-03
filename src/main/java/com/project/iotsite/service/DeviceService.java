@@ -8,7 +8,6 @@ public interface DeviceService {
 
     List<Device> findByname(String name);
 
-
     List<Device> findAll();
 
     Device save(Device d);
@@ -20,4 +19,8 @@ public interface DeviceService {
     Device findById(long id);
 
     List<Device> findAllByRoomId(long id);
+
+    Device OpenDevice(long id);
+
+    Device CloseDevice(long id);
 }

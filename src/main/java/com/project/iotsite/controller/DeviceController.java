@@ -1,7 +1,6 @@
 package com.project.iotsite.controller;
 
 import com.project.iotsite.entity.Device;
-import com.project.iotsite.repository.DeviceRepository;
 import com.project.iotsite.service.DeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -55,5 +54,16 @@ public class DeviceController  {
     @GetMapping("/rooms/{id}/devices")
     public  Collection<Device>  getByRoomId(@PathVariable long id) {
         return deviceService.findAllByRoomId(id);
+    }
+
+
+    @PutMapping("/devices/{id}/open")
+    public Device OpenDevice(@PathVariable long id  ){
+       return  deviceService.OpenDevice(id);
+    }
+
+    @PutMapping("/devices/{id}/close")
+    public Device CloseDevice(@PathVariable long id  ){
+        return deviceService.CloseDevice(id);
     }
 }
