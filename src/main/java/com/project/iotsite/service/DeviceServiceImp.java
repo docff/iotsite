@@ -10,54 +10,54 @@ package com.project.iotsite.service;
 @Service
 public class DeviceServiceImp implements DeviceService {
     @Autowired
-    private DeviceRepository divRep;
+    private DeviceRepository deviceRepository;
 
     @Override
     public List<Device> findByname(String name) {
-        return divRep.findByname(name);
+        return deviceRepository.findByname(name);
     }
 
     @Override
     public List<Device> findAll() {
-        return divRep.findAll();
+        return deviceRepository.findAll();
     }
 
     @Override
     public Device save(Device d) {
-        return divRep.save(d);
+        return deviceRepository.save(d);
     }
 
     @Override
     public void delete(Long id) {
-        divRep.deleteById(id);
+        deviceRepository.deleteById(id);
     }
 
     @Override
     public void delete(Device d) {
-        divRep.delete(d);
+        deviceRepository.delete(d);
     }
 
     @Override
     public Device findById(long id) {
-        return divRep.findById(id);
+        return deviceRepository.findById(id);
     }
 
     @Override
-    public List<Device> findAllByRoomId(long id) { return divRep.findAllByRoomId(id); }
+    public List<Device> findAllByRoomId(long id) { return deviceRepository.findAllByRoomId(id); }
 
     @Override
     public Device CloseDevice(long id) {
-        Device d = divRep.findById(id);
-        d.setStatus( 0 );
-        divRep.save(d);
+        Device d = deviceRepository.findById(id);
+        d.setStatus( "0" );
+        deviceRepository.save(d);
         return d;
         }
 
     @Override
     public Device OpenDevice (long id ) {
-        Device d = divRep.findById(id);
-        d.setStatus( 1 );
-        divRep.save(d);
+        Device d = deviceRepository.findById(id);
+        d.setStatus( "1" );
+        deviceRepository.save(d);
         return d;
     }
 }

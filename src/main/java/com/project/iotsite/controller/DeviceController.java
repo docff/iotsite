@@ -66,4 +66,5 @@ public class DeviceController  {
     public Device CloseDevice(@PathVariable long id  ){
         return deviceService.CloseDevice(id);
     }
+
 }

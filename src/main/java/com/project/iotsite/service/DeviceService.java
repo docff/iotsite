@@ -23,4 +23,6 @@ public interface DeviceService {
     Device OpenDevice(long id);
 
     Device CloseDevice(long id);
+
+
 }
