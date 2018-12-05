@@ -1,9 +1,6 @@
 package com.project.iotsite.entity;
 
-import org.springframework.data.repository.cdi.Eager;
-
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,11 +12,14 @@ public class User {
     private String name;
     private String surname;
     private String email;
+    private String username;
     private String password;
 
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
+
+
 
     @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(name = "user_device",
@@ -34,6 +34,7 @@ public class User {
         this.name = name;
         this.surname = surname;
         this.email = email;
+        this.username=username;
         this.password = password;
         this.role = role;
         this.devices = devices;
@@ -100,6 +101,14 @@ public class User {
             this.devices = new HashSet<>();
         }
         this.devices.add(device);
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
 

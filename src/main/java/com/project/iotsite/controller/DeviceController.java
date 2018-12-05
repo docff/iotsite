@@ -15,6 +15,7 @@ import java.util.List;
 @RestController
 @CrossOrigin
 public class DeviceController  {
+
     @Autowired
     private DeviceService deviceService;
 
@@ -30,7 +31,7 @@ public class DeviceController  {
     }
 
     @PutMapping("/devices/{id}")
-    public ResponseEntity<Device> updateDevice(@PathVariable long id, @RequestBody Device device) {
+    public ResponseEntity<Device> updateDevice(@RequestBody Device device) {
         Device updated = deviceService.save(device);
         return new ResponseEntity<>(updated, HttpStatus.OK);
 

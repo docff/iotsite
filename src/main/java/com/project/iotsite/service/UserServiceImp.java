@@ -5,40 +5,52 @@ import com.project.iotsite.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import java.util.List;
 
 @Service
 public class UserServiceImp implements UserService {
     @Autowired
-    private UserRepository usrRep;
+    private UserRepository userRepository;
 
     @Override
     public List<User> findByname(String name) {
-        return usrRep.findByname(name);
+        return userRepository.findByname(name);
     }
 
     @Override
     public List<User> findAll() {
-        return usrRep.findAll();
+        return userRepository.findAll();
     }
 
     @Override
     public User save(User d) {
-        return usrRep.save(d);
+        return userRepository.save(d);
     }
 
     @Override
     public void delete(Long id) {
-        usrRep.deleteById(id);
+        userRepository.deleteById(id);
     }
 
     @Override
     public void delete(User d) {
-        usrRep.delete(d);
+        userRepository.delete(d);
     }
 
     @Override
     public User findById(long id) {
-        return usrRep.findById(id);
+        return userRepository.findById(id);
     }
+
+    @Override
+    public User findByUsername(String username){
+        return userRepository.findByUsername(username);
+    }
+
+    @Override
+    public List<User> findByNameContaining(String searchterm){
+        return userRepository.findByNameContaining(searchterm);
+    }
+
 }

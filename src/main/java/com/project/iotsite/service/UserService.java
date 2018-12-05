@@ -11,12 +11,18 @@ public interface UserService {
 
     List<User> findAll();
 
-    User save(User d);
+    User save(User user);
 
     void delete(Long id);
 
     void delete(User p);
 
     User findById(long id);
+
+    User findByUsername(String username);
+
+    List<User> findByNameContaining(String searchterm);
+
+
 }
 
