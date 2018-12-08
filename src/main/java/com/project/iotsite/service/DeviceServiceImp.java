@@ -1,13 +1,11 @@
 package com.project.iotsite.service;
 
         import com.project.iotsite.entity.Device;
-        import com.project.iotsite.repository.DeviceRepository;
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.stereotype.Service;
+import com.project.iotsite.repository.DeviceRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-        import java.util.List;
-        import java.util.Set;
-        import java.util.stream.Stream;
+import java.util.List;
 
 @Service
 public class DeviceServiceImp implements DeviceService {
@@ -50,7 +48,7 @@ public class DeviceServiceImp implements DeviceService {
     @Override
     public Device closeDevice(long id) {
         Device d = deviceRepository.findById(id);
-        d.setStatus( "0" );
+        d.setStatus((long) 0);
         deviceRepository.save(d);
         return d;
         }
@@ -58,22 +56,20 @@ public class DeviceServiceImp implements DeviceService {
 
 //        probably doesn't work
     @Override
-    public List<Device> changeRoomDevices(long room_id, String oldStatus, String newStatus) {
+    public List<Device> changeRoomDevices(long room_id, Long oldStatus, Long newStatus) {
         List<Device> deviceList = deviceRepository.findAllByRoomIdAndStatus(room_id,oldStatus);
 
-        Device d;
         for (int i=0; i< deviceList.toArray().length; i++){
-            d = deviceList.get(i);
             deviceList.get(i).setStatus(newStatus);
-            deviceRepository.save(d);
+            deviceRepository.saveAll(deviceList);
         }
-        return deviceList;
+        return deviceRepository.findAllByRoomId(room_id);
     }
 
     @Override
     public Device openDevice(long id ) {
         Device d = deviceRepository.findById(id);
-        d.setStatus( "1" );
+        d.setStatus((long) 1);
         deviceRepository.save(d);
         return d;
     }

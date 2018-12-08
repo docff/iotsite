@@ -24,5 +24,5 @@ public interface DeviceService {
 
     Device closeDevice(long id);
 
-    List<Device> changeRoomDevices(long room_id, String Oldstatus, String newStatus);
+    List<Device> changeRoomDevices(long room_id, Long oldstatus, Long newStatus);
 }

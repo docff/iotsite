@@ -11,7 +11,7 @@ public class Device {
     private long id;
     private String name;
     private String info;
-    private String status;
+    private Long status;
 
     @ManyToOne
     @JoinColumn(name = "type_id")
@@ -27,14 +27,14 @@ public class Device {
     public Device() {
     }
 
-    public Device(String name, String info, String status, Type type) {
+    public Device(String name, String info, Long status, Type type) {
         this.name = name;
         this.info = info;
         this.status = status;
         this.type = type;
     }
 
-    public Device(String name, String info, String status, Type type, Set<User> users, Room room) {
+    public Device(String name, String info, Long status, Type type, Set<User> users, Room room) {
         this.name = name;
         this.info = info;
         this.status = status;
@@ -67,11 +67,11 @@ public class Device {
         this.info = info;
     }
 
-    public String getStatus() {
+    public Long getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Long status) {
         this.status = status;
     }
 
