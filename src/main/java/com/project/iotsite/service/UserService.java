@@ -31,5 +31,7 @@ public interface UserService {
     boolean findByUsernameBool(String username);
 
     List<User> findByRoleName(String role);
+
+    User findByEmail(String email);
 }
 

@@ -82,7 +82,11 @@ public class UserServiceImp implements UserService {
         userRepository.save(user);
         return userRepository.findByEmail(user.getEmail());
     }
+    @Override
+    public User findByEmail(String email){
 
+        return userRepository.findByEmail(email);
+    }
 
     @Override
     public List<User> findByRoleName(String role) {
