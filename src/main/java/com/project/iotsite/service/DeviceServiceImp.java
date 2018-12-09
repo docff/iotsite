@@ -48,7 +48,7 @@ public class DeviceServiceImp implements DeviceService {
     @Override
     public Device closeDevice(long id) {
         Device d = deviceRepository.findById(id);
-        d.setStatus( "0" );
+        d.setStatus((long) 0);
         deviceRepository.save(d);
         return d;
         }
@@ -56,7 +56,7 @@ public class DeviceServiceImp implements DeviceService {
 
 //        probably doesn't work
     @Override
-    public List<Device> changeRoomDevices(long room_id, String oldStatus, String newStatus) {
+    public List<Device> changeRoomDevices(long room_id, Long oldStatus, Long newStatus) {
         List<Device> deviceList = deviceRepository.findAllByRoomIdAndStatus(room_id,oldStatus);
 
         for (int i=0; i< deviceList.toArray().length; i++){
@@ -69,7 +69,7 @@ public class DeviceServiceImp implements DeviceService {
     @Override
     public Device openDevice(long id ) {
         Device d = deviceRepository.findById(id);
-        d.setStatus( "1" );
+        d.setStatus((long) 1);
         deviceRepository.save(d);
         return d;
     }

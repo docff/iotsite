@@ -1,7 +1,6 @@
 package com.project.iotsite.repository;
 
 import com.project.iotsite.entity.Device;
-import com.project.iotsite.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +13,6 @@ public interface DeviceRepository extends JpaRepository<Device, Long> {
     List<Device> findByname(String name);
     Device findById(long id);
     List<Device> findAllByRoomId(long id);
-    List<Device> findAllByRoomIdAndStatus(long room_id, String status);
+    List<Device> findAllByRoomIdAndStatus(Long room_id, Long status);
 
 }
