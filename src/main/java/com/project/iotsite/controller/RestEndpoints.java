@@ -29,7 +29,7 @@ class RestEndpoints {
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
-    @RequestMapping("/authenticate")
+    @RequestMapping("/")
     @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<User> login(@RequestBody User user)  {
 
