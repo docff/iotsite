@@ -1,18 +1,9 @@
 package com.project.iotsite;
 
-import com.project.iotsite.entity.*;
-import com.project.iotsite.repository.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
-import java.util.Optional;
-import java.util.Random;
-import java.util.stream.Stream;
-
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages={". "})
 public class IoTSiteApplication {
 /*
     @Autowired

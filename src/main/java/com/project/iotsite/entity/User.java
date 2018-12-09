@@ -14,6 +14,15 @@ public class User {
     private String email;
     private String username;
     private String password;
+    private String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     @ManyToOne
     @JoinColumn(name = "role_id")
@@ -38,6 +47,7 @@ public class User {
         this.password = password;
         this.role = role;
         this.devices = devices;
+        this.token = token;
     }
 
     public long getId() {

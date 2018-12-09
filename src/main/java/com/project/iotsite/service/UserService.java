@@ -24,5 +24,12 @@ public interface UserService {
     List<User> findByNameContaining(String searchterm);
 
 
+    User findByPassword(String email);
+
+    User findOne(String username);
+
+    boolean findByUsernameBool(String username);
+
+    List<User> findByRoleName(String role);
 }
 

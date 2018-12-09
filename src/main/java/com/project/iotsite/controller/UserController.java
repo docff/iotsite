@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.Collection;
 
 @RestController
 @CrossOrigin
-public class UserController  {
+public class UserController {
+
     @Autowired
     private UserService userService;
 
-    @GetMapping("/users")
-    public Collection<User> getAllUsers() {
-        return  userService.findAll();
-    }
+//    @GetMapping("/users")
+//    public Collection<User> getAllUsers() {
+//        return  userService.findAll();
+//    }
 
     @GetMapping("/users/{id}")
     public User getUser(@PathVariable long id) {
