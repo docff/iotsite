@@ -53,8 +53,13 @@ public class DeviceServiceImp implements DeviceService {
         return d;
         }
 
+    @Override
+    public List<Device> changeRoomDevices(long room_id, String oldstatus, String newStatus) {
+        return null;
+    }
 
-//        probably doesn't work
+
+    //        probably doesn't work
     @Override
     public List<Device> changeRoomDevices(long room_id, Long oldStatus, Long newStatus) {
         List<Device> deviceList = deviceRepository.findAllByRoomIdAndStatus(room_id,oldStatus);

@@ -20,6 +20,9 @@ public interface DeviceService {
 
     List<Device> findAllByRoomId(long id);
 
+    //        probably doesn't work
+    List<Device> changeRoomDevices(long room_id, Long oldStatus, Long newStatus);
+
     Device openDevice(long id);
 
     Device closeDevice(long id);

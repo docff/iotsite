@@ -72,7 +72,7 @@ public class DeviceController  {
     @PutMapping("/rooms/{id}/open")
     public List<Device> openAllDevicesOfRoom(@PathVariable long id)
     {
-        return deviceService.changeRoomDevices(id,(long) 0,(long) 1);
+        return (List<Device>) deviceService.changeRoomDevices(id,(long) 0,(long) 1);
     }
 
     @PutMapping("/rooms/{id}/close")
